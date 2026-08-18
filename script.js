@@ -24,3 +24,20 @@ btnContador.addEventListener("click", function() {
     textoContador.textContent = "¡" + clics + " clics! No hay quien te pare 🔥";
   }
 });
+const formulario = document.getElementById("formContacto");
+const resultado = document.getElementById("resultadoForm");
+formulario.addEventListener("submit", function(evento) {
+  evento.preventDefault();
+ 
+  const nombre = document.getElementById("nombre").value;
+  const correo = document.getElementById("correo").value;
+  const mensajeTexto = document.getElementById("mensajeUsuario").value;
+
+  if (nombre === "" || correo === "") {
+    resultado.textContent = "⚠️ Por favor completa al menos tu nombre y correo";
+    resultado.style.color = "red";
+  } else {
+    resultado.textContent = "¡Gracias " + nombre + "! Recibimos tu mensaje en " + correo;
+    resultado.style.color = "green";
+  }
+});
