@@ -41,3 +41,33 @@ formulario.addEventListener("submit", function(evento) {
     resultado.style.color = "green";
   }
 });
+const habilidades = ["HTML", "CSS", "JavaScript", "Git y GitHub", "Validación de formularios"];
+const listaHabilidades = document.getElementById("listaHabilidades");
+
+function mostrarHabilidades() {
+  for (let i = 0; i < habilidades.length; i++) {
+    const item = document.createElement("li");
+    item.textContent = habilidades[i];
+    listaHabilidades.appendChild(item);
+  }
+}
+
+mostrarHabilidades();
+const inputHabilidad = document.getElementById("nuevaHabilidad");
+const btnAgregar = document.getElementById("btnAgregar");
+
+btnAgregar.addEventListener("click", function() {
+  const nuevaHabilidad = inputHabilidad.value;
+
+  if (nuevaHabilidad === "") {
+    return;
+  }
+
+  habilidades.push(nuevaHabilidad);
+
+  const item = document.createElement("li");
+  item.textContent = nuevaHabilidad;
+  listaHabilidades.appendChild(item);
+
+  inputHabilidad.value = "";
+});

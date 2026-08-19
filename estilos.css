@@ -31,3 +31,10 @@ a {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
    text-align: center;
 }
+#listaHabilidades {
+  list-style: none;
+  padding-left: 0;
+}
+#listaHabilidades li {
+  margin-bottom: 6px;
+}
