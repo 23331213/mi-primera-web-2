@@ -1,3 +1,10 @@
+const perfil = {
+  nombre: "Matias",
+  pais: "Chile",
+  meta: "Crear páginas web profesionales"
+};
+
+document.getElementById("nombrePerfil").textContent = "Hola, soy " + perfil.nombre;
 const boton = document.getElementById("btnSaludo");
 const mensaje = document.getElementById("mensaje");
 
@@ -26,21 +33,47 @@ btnContador.addEventListener("click", function() {
 });
 const formulario = document.getElementById("formContacto");
 const resultado = document.getElementById("resultadoForm");
+const mensajesRecibidos = [];
+
 formulario.addEventListener("submit", function(evento) {
   evento.preventDefault();
- 
+
   const nombre = document.getElementById("nombre").value;
   const correo = document.getElementById("correo").value;
-  const mensajeTexto = document.getElementById("mensajeUsuario").value;
+  const texto = document.getElementById("mensajeUsuario").value;
 
   if (nombre === "" || correo === "") {
     resultado.textContent = "⚠️ Por favor completa al menos tu nombre y correo";
     resultado.style.color = "red";
-  } else {
-    resultado.textContent = "¡Gracias " + nombre + "! Recibimos tu mensaje en " + correo;
-    resultado.style.color = "green";
+    return;
   }
+
+  const nuevoMensaje = {
+    nombre: nombre,
+    correo: correo,
+    texto: texto
+  };
+
+  mensajesRecibidos.push(nuevoMensaje);
+
+  resultado.textContent = "¡Gracias " + nombre + "! Recibimos tu mensaje en " + correo;
+  resultado.style.color = "green";
+
+  mostrarMensajes();
+  formulario.reset();
 });
+
+function mostrarMensajes() {
+  const contenedor = document.getElementById("bandejaMensajes");
+  contenedor.innerHTML = "";
+
+  for (let i = 0; i < mensajesRecibidos.length; i++) {
+    const m = mensajesRecibidos[i];
+    const div = document.createElement("div");
+    div.textContent = m.nombre + " (" + m.correo + "): " + m.texto;
+    contenedor.appendChild(div);
+  }
+}
 const habilidades = ["HTML", "CSS", "JavaScript", "Git y GitHub", "Validación de formularios"];
 const listaHabilidades = document.getElementById("listaHabilidades");
 
@@ -71,3 +104,19 @@ btnAgregar.addEventListener("click", function() {
 
   inputHabilidad.value = "";
 });
+const proyectos = [
+  { titulo: "Mi primera web", descripcion: "Página de presentación con HTML, CSS y JS" },
+  { titulo: "Contador interactivo", descripcion: "Botón que cuenta clics con mensajes dinámicos" }
+];
+
+const listaProyectos = document.getElementById("listaProyectos");
+
+for (let i = 0; i < proyectos.length; i++) {
+  const proyectoActual = proyectos[i];
+
+  const div = document.createElement("div");
+  div.innerHTML = "<strong>" + proyectoActual.titulo + "</strong><br>" + proyectoActual.descripcion;
+
+  listaProyectos.appendChild(div);
+  listaProyectos.appendChild(document.createElement("br"));
+}

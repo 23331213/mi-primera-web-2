@@ -8,21 +8,25 @@
 
 <body>
    <div class="tarjeta">
-    <h1>Hola, soy Matias</h1>
+    <h1 id="nombrePerfil">Hola, soy Matias</h1>
     <img src="foto.jpg.png" alt="Mi foto" class="foto-perfil">
     <p>Estoy aprendiendo desarrollo web y me encataria aprender muchisisimo mas!.</p>
 
-<h2>Sobre mí</h2>
-<ul id="listaHabilidades"><u1></u1>
+<ul id="listaHabilidades"></ul>
 <input type="text" id="nuevaHabilidad" placeholder="Nueva habilidad">
 <button id="btnAgregar">Agregar</button>
-</ul>
+
+<br><br>
 
 <a href="https://www.google.com">Mi sitio favorito</a>
+<br><br>
 <button id="btnSaludo">Salúdame</button>
+
 <p id="mensaje"></p>
 <button id="btnContador">Clic aquí</button>
 <p id="contador">Has hecho clic 0 veces</p>
+<h2>Mis Proyectos</h2>
+<div id="listaProyectos"></div>
 <h2>Contáctame</h2>
 <form id="formContacto">
   <label for="nombre">Nombre:</label><br>
@@ -36,8 +40,10 @@
 
   <button type="submit">Enviar</button>
 </form>
-<p id="resultadoForm"></p>
 
+<p id="resultadoForm"></p>
+<h3>Mensajes recibidos:</h3>
+<div id="bandejaMensajes"></div>
 </div> 
 
 <script src="script.js"></script>
